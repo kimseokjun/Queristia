@@ -27,11 +27,12 @@ public class User {
     private String nickname;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "userRank")
     private UserRank rank;
 
     private long popularity = 0;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
     private User(String userEmail, String password, String nickname, UserRank rank, long popularity, LocalDateTime createdAt) {
         this.userEmail = userEmail;
@@ -56,4 +57,6 @@ public class User {
                 LocalDateTime.now()
         );
     }
+
+
 }
