@@ -1,4 +1,4 @@
-package org.example.queristia.domain.user.dto;
+package org.example.queristia.domain.auth.dto;
 
 import lombok.Getter;
 
