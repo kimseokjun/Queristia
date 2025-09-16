@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.queristia.domain.user.UserRank;
 
-
 import java.time.LocalDateTime;
 
 @jakarta.persistence.Entity
@@ -14,10 +13,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @Column(nullable = false, unique = true)
     private String userEmail;
 
     @Column(nullable = false)
@@ -34,7 +37,8 @@ public class User {
 
     private LocalDateTime createdAt;
 
-    private User(String userEmail, String password, String nickname, UserRank rank, long popularity, LocalDateTime createdAt) {
+    private User(String username, String userEmail, String password, String nickname, UserRank rank, long popularity, LocalDateTime createdAt) {
+        this.username = username;
         this.userEmail = userEmail;
         this.password = password;
         this.nickname = nickname;
@@ -43,12 +47,15 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public static User of(String userEmail,
-                          String password,
-                          String nickname,
-                          UserRank rank,
-                          long popularity) {
+    public static User of(
+            String username,
+            String userEmail,
+            String password,
+            String nickname,
+            UserRank rank,
+            long popularity) {
         return new User(
+                username,
                 userEmail,
                 password,
                 nickname,

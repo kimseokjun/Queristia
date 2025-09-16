@@ -18,7 +18,9 @@ public class AuthService {
 
     @Transactional
     public UserSaveResponse signup(UserSaveRequest userSaveRequest) {
-        User user = User.of(userSaveRequest.getUserEmail()
+        User user = User.of(
+                userSaveRequest.getUsername()
+                , userSaveRequest.getUserEmail()
                 , userSaveRequest.getPassword()
                 , userSaveRequest.getNickname()
                 , UserRank.Beginner
@@ -27,7 +29,7 @@ public class AuthService {
         System.out.println(user.getNickname());
         User usersaved = userRepository.save(user);
 
-        return new UserSaveResponse(usersaved.getId(), usersaved.getUserEmail(), usersaved.getNickname(), usersaved.getRank(), usersaved.getPopularity(), usersaved.getCreatedAt());
+        return new UserSaveResponse(usersaved.getId(), usersaved.getUsername(), usersaved.getUserEmail(), usersaved.getNickname(), usersaved.getRank(), usersaved.getPopularity(), usersaved.getCreatedAt());
 
     }
 }

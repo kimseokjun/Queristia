@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class UserSaveRequest {
-
+    private String username;
     private String userEmail;
     private String password;
     private String nickname;
