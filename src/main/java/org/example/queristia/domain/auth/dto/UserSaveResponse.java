@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UserSaveResponse {
     private long id;
+    private String username;
     private String userEmail;
     private String nickname;
     private UserRank rank;
