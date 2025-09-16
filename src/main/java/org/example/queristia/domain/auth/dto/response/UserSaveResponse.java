@@ -1,4 +1,4 @@
-package org.example.queristia.domain.auth.dto;
+package org.example.queristia.domain.auth.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
