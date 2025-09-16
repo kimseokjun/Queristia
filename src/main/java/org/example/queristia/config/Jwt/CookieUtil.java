@@ -12,7 +12,7 @@ public class CookieUtil {
     public ResponseCookie createAccessTokenCookie(String token) {
         return ResponseCookie.from(ACCESS_COOKIE, token)
                 .httpOnly(true)
-                .secure(true)  // 개발환경용
+                .secure(true)  // 개발환경용 구부ㅜㄴ하기
                 .sameSite("Strict")
                 .path("/")
                 .maxAge(COOKIE_MAX_AGE)
