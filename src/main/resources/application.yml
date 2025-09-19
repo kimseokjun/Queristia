@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: Queristia
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/qqq?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 1234
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
+    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+        foarmat_sql: true   # ??? ? ??? format_sql ?????
+
+jwt:
+  secret:
+    key: MySuperSecretKeyForJwt1234567890
